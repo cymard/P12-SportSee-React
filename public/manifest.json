@@ -1,0 +1,6 @@
+{
+    "short_name": "Sport See App",
+    "name": "Sport See App",
+    "start_url": ".",
+    "display": "standalone"
+}
