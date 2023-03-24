@@ -1,0 +1,26 @@
+@import '../../style/_variables.scss';
+
+header {
+    background-color: $black;
+    color: white;
+    padding: 20px 30px;
+
+    ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        li {
+            font-size: 24px;
+
+            a, a:visited {
+                color: white;
+            }
+
+            img {
+                height: 57px;
+                object-fit: cover;
+            }
+        }
+    }
+}
