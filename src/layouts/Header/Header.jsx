@@ -9,7 +9,7 @@ function Header() {
                 <ul>
                     <li>
                         <a href="/">
-                            <img src={logoSportSee} alt="logo rouge sportsee"/>
+                            <img src={logoSportSee} alt="logo rouge sportsee" />
                         </a>
                     </li>
                     <li>
