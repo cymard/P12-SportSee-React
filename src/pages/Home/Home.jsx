@@ -6,14 +6,23 @@ import chickenIcon from '../../components/CalorieItem/images/chicken.png';
 import fireIcon from '../../components/CalorieItem/images/fire.png';
 import appleIcon from '../../components/CalorieItem/images/apple.png';
 import cheeseBurgerIcon from '../../components/CalorieItem/images/cheeseburger.png';
-import { UserData, UserAverageSession } from '../../Data';
+import { UserData, UserAverageSession, UserPerformance } from '../../Data';
 // import { Bar } from "react-chartjs-2";
 // import {Chart as Chartjs} from 'chart.js/auto'
 import VerticalBarChart from "../../components/VerticalBarChart/VerticalBarChart";
-import { Line } from 'react-chartjs-2';
+import { Line, Radar } from 'react-chartjs-2';
 
 function Home() {
-    // console.log(UserAverageSession)
+    console.log(Object.values(UserPerformance[0].kind))
+    console.log(UserPerformance.map(element => {
+        // element.data.map(object => object.value)
+        return {
+            data: element.data.map(object => object.value)
+        }
+        // console.log(Object.values(element.data))
+    }))
+
+    // UserPerformance[0].kind.map(element => console.log(element))
     return (
         <div id="home">
             <Menu />
@@ -256,7 +265,60 @@ function Home() {
                                 ></Line>
                             </div>
                             <div className="results">
+                                <Radar
+                                    data={{
+                                        // labels: Object.values(UserPerformance[0].kind),
+                                        labels: ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Energie', 'Cardio'],
+                                        datasets: UserPerformance.map(element => {
+                                            return {
+                                                data: element.data.map(object => object.value)
+                                            }
+                                        })
 
+                                    }}
+                                    options={{
+                                        maintainAspectRatio: false,
+                                        layout: {
+                                            padding: {
+                                                top: 20,
+                                                bottom: 20
+                                            }
+                                        },
+                                        plugins: {
+                                            legend: {
+                                                display: false
+                                            }
+                                        },
+                                        scales: {
+                                            r: {
+                                                grid: {
+                                                    color: 'white'
+                                                },
+                                                pointLabels: {
+                                                    color: 'white',
+                                                    font: {
+                                                        size: 12
+                                                    }
+                                                },
+                                                ticks: {
+                                                    display: false,
+                                                    stepSize: 40
+                                                },
+                                                angleLines: {
+                                                    display: false
+                                                }
+                                            }
+                                        },
+                                        elements: {
+                                            point: {
+                                                radius: 0
+                                            },
+                                            line: {
+                                                borderWidth: 0
+                                            }
+                                        }
+                                    }}
+                                />
                             </div>
                             <div className="results"></div>
                         </div>
