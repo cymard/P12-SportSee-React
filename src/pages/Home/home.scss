@@ -27,7 +27,6 @@
 
                 #activities {
                     height: 320px;
-                    background-color: blue;
                     border-radius: 5px;
                 }
 
@@ -40,8 +39,11 @@
                     .results {
                         height: 260px;
                         width: 100%;
-                        background-color: red;
+                        //background-color: red;
+                        background-color: darkgray;
                         border-radius: 5px;
+                        display: flex;
+                        align-items: end;
                     }
                 }
             }

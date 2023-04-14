@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './CalorieItem.scss';
 import PropTypes from 'prop-types';
 
-function CalorieItem({ unit, value, color, children, name }) {
+function CalorieItem({ img, imgAlt, unit, value, color, children, name }) {
     const [colorClass, setColorClass] = useState('');
 
     useEffect(() => {
@@ -23,7 +23,9 @@ function CalorieItem({ unit, value, color, children, name }) {
 
     return (
         <div className="calorie-item">
-            <div className={'calorie-item-visual ' + colorClass}>{children}</div>
+            <div className={'calorie-item-visual ' + colorClass}>
+                <img src={img} alt={imgAlt} />
+            </div>
             <div className="calorie-item-text-container">
                 <span>
                     {value}
