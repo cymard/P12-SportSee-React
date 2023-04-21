@@ -1,4 +1,4 @@
-export const UserData = [
+const UserData = [
     {
         id: 1,
         week: 1,
@@ -61,7 +61,7 @@ export const UserData = [
     }
 ];
 
-export const UserAverageSession = [
+const UserAverageSession = [
     {
         userId: 12,
         sessions: [
@@ -130,7 +130,7 @@ export const UserAverageSession = [
     }
 ]
 
-export const UserPerformance = [
+const UserPerformance = [
     {
         userId: 12,
         kind: {
@@ -206,3 +206,38 @@ export const UserPerformance = [
         ]
     }
 ]
+
+const UserMainData = [
+    {
+        id: 12,
+        userInfos: {
+            firstName: 'Karl',
+            lastName: 'Dovineau',
+            age: 31,
+        },
+        todayScore: 0.12,
+        keyData: {
+            calorieCount: 1930,
+            proteinCount: 155,
+            carbohydrateCount: 290,
+            lipidCount: 50
+        }
+    },
+    {
+        id: 18,
+        userInfos: {
+            firstName: 'Cecilia',
+            lastName: 'Ratorez',
+            age: 34,
+        },
+        score: 0.3,
+        keyData: {
+            calorieCount: 2500,
+            proteinCount: 90,
+            carbohydrateCount: 150,
+            lipidCount: 120
+        }
+    }
+]
+
+export {UserData, UserAverageSession, UserPerformance, UserMainData}

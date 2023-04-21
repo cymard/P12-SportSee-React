@@ -6,23 +6,37 @@ import chickenIcon from '../../components/CalorieItem/images/chicken.png';
 import fireIcon from '../../components/CalorieItem/images/fire.png';
 import appleIcon from '../../components/CalorieItem/images/apple.png';
 import cheeseBurgerIcon from '../../components/CalorieItem/images/cheeseburger.png';
-import { UserData, UserAverageSession, UserPerformance } from '../../Data';
-// import { Bar } from "react-chartjs-2";
-// import {Chart as Chartjs} from 'chart.js/auto'
+import { UserData, UserAverageSession, UserPerformance, UserMainData } from '../../Data';
 import VerticalBarChart from "../../components/VerticalBarChart/VerticalBarChart";
-import { Line, Radar } from 'react-chartjs-2';
+import { Line, Radar, Doughnut } from 'react-chartjs-2';
 
 function Home() {
-    console.log(Object.values(UserPerformance[0].kind))
-    console.log(UserPerformance.map(element => {
-        // element.data.map(object => object.value)
-        return {
-            data: element.data.map(object => object.value)
-        }
-        // console.log(Object.values(element.data))
-    }))
 
-    // UserPerformance[0].kind.map(element => console.log(element))
+    const doughnutPluginsScoreCenter = {
+        id: 'doughnut_plugins_score_center',
+        beforeDatasetsDraw(chart) {
+            const score = chart.data.datasets[0].data[1]
+            const { ctx, width, height } = chart;
+
+            const textFirstPart = score+'%';
+            const textSecondPart = 'de votre';
+            const textThirdPart = 'objectif';
+
+            const centerX = width / 2;
+            const centerY = height / 2;
+
+            ctx.font = '24px Roboto';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = 'black';
+            ctx.fillText(textFirstPart, centerX - 20, centerY);
+
+            ctx.fillStyle = 'gray';
+            ctx.font = '15px Roboto';
+            ctx.fillText(textSecondPart, centerX - 25, centerY + 30);
+            ctx.fillText(textThirdPart, centerX - 25, centerY + 50);
+        }
+    }
+
     return (
         <div id="home">
             <Menu />
@@ -57,6 +71,7 @@ function Home() {
                                     ]
                                 }}
                                 options={{
+                                    animation: false,
                                     responsive: true,
                                     maintainAspectRatio: false,
                                     datasets: {
@@ -65,15 +80,6 @@ function Home() {
                                             maxBarThickness: 10
                                         }
                                     },
-                                    // onHover: (e, bars, args) => {
-                                    //     if(bars.length) {
-                                    //         console.log(bars.shift().index)
-                                    //         //     if (bars.shift().index) {
-                                    //         //         chartElement[0]._model.backgroundColor = 'red';
-                                    //         //     }
-                                    //         // e.chart.resize(100, 100)
-                                    //     }
-                                    // },
                                     plugins: {
                                         tooltip: {
                                             backgroundColor: 'red',
@@ -254,15 +260,8 @@ function Home() {
                                                 right: 15
                                             }
                                         },
-                                        // onHover: (e) => {
-                                        //     console.log(e)
-                                        //     const dataX = e.chart.scales.x.getValueForPixel(e.x);
-                                        //     console.log(dataX)
-                                        //     // faire correspondre le nombre avec le dataset
-                                        //     //
-                                        // }
                                     }}
-                                ></Line>
+                                />
                             </div>
                             <div className="results">
                                 <Radar
@@ -314,13 +313,64 @@ function Home() {
                                                 radius: 0
                                             },
                                             line: {
-                                                borderWidth: 0
+                                                borderWidth: 0,
                                             }
                                         }
                                     }}
                                 />
                             </div>
-                            <div className="results"></div>
+                            <div className="results">
+                                <Doughnut
+                                    data={{
+                                        datasets: [{
+                                            data: [100-UserMainData[0].todayScore*100, Math.floor(UserMainData[0].todayScore*100)],
+                                            backgroundColor: [
+                                                '#FBFBFB',
+                                                'red'
+                                            ]
+                                        }],
+                                        labels: [
+                                            'todayScore',
+                                            '',
+                                        ]
+                                    }}
+                                    options={{
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        borderWidth: 0,
+                                        cutout: 80,
+                                        radius: 90,
+                                        layout: {
+                                            padding: {
+                                                left: 30,
+                                                right: 30,
+                                                top: 20,
+                                                bottom: 20
+                                            },
+                                        },
+                                        plugins: {
+                                            title: {
+                                                text: 'Score',
+                                                display: true,
+                                                align: 'start',
+                                                color: 'black'
+                                            },
+                                            legend: {
+                                                display: false
+                                            },
+                                            tooltip: {
+                                                enabled: false
+                                            }
+                                        },
+                                        elements: {
+                                            arc: {
+                                                borderRadius: 10
+                                            }
+                                        }
+                                    }}
+                                    plugins={[doughnutPluginsScoreCenter]}
+                                />
+                            </div>
                         </div>
                     </section>
                     <section id="calories">
