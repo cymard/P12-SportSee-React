@@ -57,16 +57,12 @@ function Home() {
                                             data: UserData.map((data) => data.poids),
                                             backgroundColor: 'black',
                                             yAxisID: 'yPoids',
-                                            // barThickness: 7,
-                                            barPercentage: 1,
-
                                         },
                                         {
                                             label: "Calories",
                                             data: UserData.map((data) => data.cal),
                                             backgroundColor: 'red',
                                             yAxisID: 'yCalories',
-                                            barPercentage: 1,
                                         }
                                     ]
                                 }}
@@ -77,7 +73,8 @@ function Home() {
                                     datasets: {
                                         bar: {
                                             borderRadius: 5,
-                                            maxBarThickness: 10
+                                            barPercentage: 0.5,
+                                            categoryPercentage: 0.4
                                         }
                                     },
                                     plugins: {
@@ -102,6 +99,7 @@ function Home() {
                                                         label = context.formattedValue + 'Kcal';
                                                     }
 
+
                                                     return label;
                                                 }
                                             },
@@ -112,7 +110,7 @@ function Home() {
                                             },
                                             caretSize: 0,
                                             caretPadding: 30,
-                                            cornerRadius: 0
+                                            cornerRadius: 0,
                                         },
                                         title: {
                                             display: true,
@@ -156,16 +154,35 @@ function Home() {
                                             beginAtZero: false,
                                             min: 69,
                                             max: 71,
-                                            ticks : {
-                                                stepSize: 1
+                                            border: {
+                                                dash: [3, 2],
                                             },
+                                            ticks : {
+                                                stepSize: 1,
+                                            }
                                         },
                                         yCalories: {
                                             id: 'B',
                                             position: 'left',
                                             beginAtZero: false,
                                             display: false,
-                                            max: 440
+                                            max: 440,
+                                        }
+                                    },
+                                    onHover: (event, chartElement) => {
+                                        if (chartElement.length > 0) {
+                                            const activePoint = chartElement[0];
+                                            const ctx = event.chart.ctx;
+                                            ctx.save();
+                                            ctx.globalCompositeOperation = 'destination-over';
+                                            ctx.fillStyle = 'lightgray';
+                                            const distanceFromGridToX = activePoint.datasetIndex === 0 ? 43 : 65
+                                            ctx.fillRect(
+                                                activePoint.element.x - distanceFromGridToX,
+                                                42,
+                                                108,
+                                                216);
+                                            ctx.restore();
                                         }
                                     }
                                 }}
@@ -260,6 +277,21 @@ function Home() {
                                                 right: 15
                                             }
                                         },
+                                        onHover: (event, chartElement) => {
+                                            if (chartElement.length > 0) {
+                                                const activePoint = chartElement[0];
+                                                const ctx = event.chart.ctx;
+                                                ctx.save();
+                                                ctx.globalCompositeOperation = 'destination-over';
+                                                ctx.fillStyle = 'rgba(170, 8, 8, 1)';
+                                                ctx.fillRect(
+                                                    activePoint.element.x,
+                                                    0,
+                                                    event.chart.width - activePoint.element.x,
+                                                    260);
+                                                ctx.restore();
+                                            }
+                                        }
                                     }}
                                 />
                             </div>
