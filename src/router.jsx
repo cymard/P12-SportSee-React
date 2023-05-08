@@ -5,7 +5,7 @@ import Home from './pages/Home/Home';
 function Router() {
     return (
         <Routes>
-            <Route path="*" element={<Home />} />
+            <Route path="/home/:id" element={<Home />} />
         </Routes>
     );
 }

@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import './CalorieItem.scss';
+import './calorieItem.scss';
 import PropTypes from 'prop-types';
 
-function CalorieItem({ img, imgAlt, unit, value, color, children, name }) {
+function CalorieItem({ img, imgAlt, unit, value, color, name }) {
     const [colorClass, setColorClass] = useState('');
+    const colors = new Map([
+        ['pink', 'calorie-item-visual-bg-pink'],
+        ['blue', 'calorie-item-visual-bg-blue'],
+        ['yellow', 'calorie-item-visual-bg-yellow'],
+        ['red', 'calorie-item-visual-bg-red'],
+    ]);
 
     useEffect(() => {
-        const colors = new Map([
-            ['pink', 'calorie-item-visual-bg-pink'],
-            ['blue', 'calorie-item-visual-bg-blue'],
-            ['yellow', 'calorie-item-visual-bg-yellow'],
-            ['red', 'calorie-item-visual-bg-red'],
-        ]);
-
-        if (!colors.has(color)) {
-            setColorClass(colors.get('blue'));
-            return;
+        if (colors.has(color)) {
+            setColorClass(colors.get(color));
         }
-
-        setColorClass(colors.get(color));
     }, []);
 
     return (
@@ -41,8 +37,7 @@ export default CalorieItem;
 
 CalorieItem.propTypes = {
     unit: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.number.isRequired,
     color: PropTypes.oneOf(['red', 'blue', 'yellow', 'pink']),
-    children: PropTypes.any.isRequired,
     name: PropTypes.string.isRequired,
 };
