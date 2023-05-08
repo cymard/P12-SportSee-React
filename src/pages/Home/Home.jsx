@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './home.scss';
-import Menu from '../../layouts/Menu/Menu';
+import VerticalNavBar from '../../layouts/VerticalNavBar/VerticalNavBar';
 import CalorieItem from '../../components/CalorieItem/CalorieItem';
 import chickenIcon from '../../components/CalorieItem/images/chicken.png';
 import fireIcon from '../../components/CalorieItem/images/fire.png';
@@ -69,7 +69,7 @@ function Home() {
 
     return (
         <div id="home">
-            <Menu />
+            <VerticalNavBar />
             <main>
                 {isError.status ? (
                     <Error>{isError.message}</Error>
