@@ -1,0 +1,68 @@
+$calorie-item-visual-bg-pink: rgba(195, 6, 174, 0.1);
+$calorie-item-visual-bg-blue: rgba(0, 0, 255, 0.1);
+$calorie-item-visual-bg-yellow: rgba(252, 255, 0, 0.1);
+$calorie-item-visual-bg-red: rgba(255, 0, 0, 0.1);
+
+.calorie-item-visual-bg-red {
+    background-color: $calorie-item-visual-bg-red;
+}
+
+.calorie-item-visual-bg-pink {
+    background-color: $calorie-item-visual-bg-pink;
+}
+
+.calorie-item-visual-bg-blue {
+    background-color: $calorie-item-visual-bg-blue;
+}
+
+.calorie-item-visual-bg-yellow {
+    background-color: $calorie-item-visual-bg-yellow;
+}
+
+.calorie-item {
+    background-color: #fbfbfb;
+    padding: 32px;
+    margin-bottom: 39px;
+    display: flex;
+    border-radius: 5px;
+
+    .calorie-item-visual {
+        height: 60px;
+        width: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        margin-right: 24px;
+
+        img,
+        i {
+            height: 19px;
+            object-fit: cover;
+            width: auto;
+        }
+
+        .apple-icon {
+            color: #fdcc0c;
+        }
+
+        .burger-icon {
+            color: red;
+        }
+    }
+
+    .calorie-item-text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        span:nth-of-type(1) {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        span:nth-of-type(2) {
+            color: #74798c;
+        }
+    }
+}
