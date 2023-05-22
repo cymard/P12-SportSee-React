@@ -21,14 +21,14 @@ $calorie-item-visual-bg-red: rgba(255, 0, 0, 0.1);
 
 .calorie-item {
     background-color: #fbfbfb;
-    padding: 32px;
-    margin-bottom: 39px;
+    padding: 20px;
+    margin-bottom: 48px;
     display: flex;
     border-radius: 5px;
 
     .calorie-item-visual {
-        height: 60px;
-        width: 60px;
+        height: 40px;
+        width: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -37,7 +37,7 @@ $calorie-item-visual-bg-red: rgba(255, 0, 0, 0.1);
 
         img,
         i {
-            height: 19px;
+            height: 15px;
             object-fit: cover;
             width: auto;
         }
@@ -58,11 +58,12 @@ $calorie-item-visual-bg-red: rgba(255, 0, 0, 0.1);
 
         span:nth-of-type(1) {
             font-weight: 700;
-            font-size: 20px;
+            font-size: 15px;
         }
 
         span:nth-of-type(2) {
             color: #74798c;
+            font-size: 11px;
         }
     }
 }

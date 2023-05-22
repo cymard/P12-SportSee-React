@@ -2,9 +2,9 @@
 
 #verticalNavBar {
     background-color: $black;
-    margin-right: 100px;
+    margin-right: 80px;
     color: white;
-    padding: 0 25px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     position: relative;
@@ -12,8 +12,9 @@
     #copyrightText {
         position: absolute;
         bottom: 130px;
-        left: -45px;
+        left: -58px;
         transform: rotate(270deg);
         width: 200px;
+        font-size: 12px;
     }
 }
