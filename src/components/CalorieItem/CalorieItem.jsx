@@ -36,6 +36,8 @@ function CalorieItem({ img, imgAlt, unit, value, color, name }) {
 export default CalorieItem;
 
 CalorieItem.propTypes = {
+    img: PropTypes.string.isRequired,
+    imgAlt: PropTypes.string,
     unit: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
     color: PropTypes.oneOf(['red', 'blue', 'yellow', 'pink']),
