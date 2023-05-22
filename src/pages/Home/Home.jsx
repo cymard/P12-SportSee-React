@@ -90,13 +90,13 @@ function Home() {
                                             ),
                                             datasets: [
                                                 {
-                                                    label: 'Poids',
+                                                    label: 'Poids (kg)',
                                                     data: userData.data.activitySessions.map((data) => data.kilogram),
                                                     backgroundColor: 'black',
                                                     yAxisID: 'yPoids',
                                                 },
                                                 {
-                                                    label: 'Calories',
+                                                    label: 'Calories brûlées (kCal)',
                                                     data: userData.data.activitySessions.map((data) => data.calories),
                                                     backgroundColor: 'red',
                                                     yAxisID: 'yCalories',
@@ -121,6 +121,18 @@ function Home() {
                                                     mode: 'index',
                                                     usePointStyle: true,
                                                     displayColors: false,
+                                                    bodySpacing: 25,
+                                                    padding: {
+                                                        y: 10,
+                                                        x: 10,
+                                                    },
+                                                    bodyAlign: 'center',
+                                                    bodyFont: {
+                                                        size: 9,
+                                                    },
+                                                    caretSize: 0,
+                                                    caretPadding: 30,
+                                                    cornerRadius: 0,
                                                     callbacks: {
                                                         title: () => {
                                                             return '';
@@ -128,25 +140,17 @@ function Home() {
                                                         label: (context) => {
                                                             let label = '';
 
-                                                            if (context.dataset.label === 'Poids') {
+                                                            if (context.dataset.label === 'Poids (kg)') {
                                                                 label = context.formattedValue + 'kg';
                                                             }
 
-                                                            if (context.dataset.label === 'Calories') {
+                                                            if (context.dataset.label === 'Calories brûlées (kCal)') {
                                                                 label = context.formattedValue + 'Kcal';
                                                             }
 
                                                             return label;
                                                         },
                                                     },
-                                                    bodySpacing: 25,
-                                                    padding: {
-                                                        y: 20,
-                                                        x: 10,
-                                                    },
-                                                    caretSize: 0,
-                                                    caretPadding: 30,
-                                                    cornerRadius: 0,
                                                 },
                                                 title: {
                                                     display: true,
@@ -159,7 +163,7 @@ function Home() {
                                                     fullSize: false,
                                                     lineHeight: 12,
                                                     padding: {
-                                                        bottom: -20,
+                                                        bottom: -30,
                                                     },
                                                 },
                                                 legend: {
@@ -174,6 +178,13 @@ function Home() {
                                                     },
                                                 },
                                                 backgroundColor: 'red',
+                                            },
+                                            layout: {
+                                                padding: {
+                                                    left: 20,
+                                                    top: 5,
+                                                    right: 5,
+                                                },
                                             },
                                             scales: {
                                                 x: {
@@ -232,7 +243,7 @@ function Home() {
                                                     ctx.fillRect(
                                                         activePoint.element.x - distanceFromGridToX,
                                                         42,
-                                                        108,
+                                                        93,
                                                         216
                                                     );
                                                     ctx.restore();
@@ -263,10 +274,10 @@ function Home() {
                                                         text: ['Durée moyenne des', 'sessions'],
                                                         font: {
                                                             weight: '400',
-                                                            size: 20,
+                                                            size: 10,
                                                             family: 'Roboto',
                                                         },
-                                                        padding: 30,
+                                                        padding: 15,
                                                         color: 'white',
                                                         align: 'start',
                                                         fullSize: false,
@@ -311,6 +322,9 @@ function Home() {
                                                         },
                                                         ticks: {
                                                             color: '#FFFFFF',
+                                                            font: {
+                                                                size: 8,
+                                                            },
                                                         },
                                                         border: {
                                                             display: false,
@@ -333,7 +347,7 @@ function Home() {
                                                 borderWidth: 2,
                                                 layout: {
                                                     padding: {
-                                                        bottom: 20,
+                                                        bottom: 10,
                                                         left: 15,
                                                         right: 15,
                                                     },
@@ -392,7 +406,7 @@ function Home() {
                                                         pointLabels: {
                                                             color: 'white',
                                                             font: {
-                                                                size: 12,
+                                                                size: 8,
                                                             },
                                                         },
                                                         ticks: {
@@ -433,14 +447,13 @@ function Home() {
                                                 responsive: true,
                                                 maintainAspectRatio: false,
                                                 borderWidth: 0,
-                                                cutout: 80,
-                                                radius: 90,
+                                                cutout: 60,
                                                 layout: {
                                                     padding: {
-                                                        left: 30,
-                                                        right: 30,
-                                                        top: 20,
-                                                        bottom: 20,
+                                                        left: 10,
+                                                        right: 10,
+                                                        top: 5,
+                                                        bottom: 5,
                                                     },
                                                 },
                                                 plugins: {

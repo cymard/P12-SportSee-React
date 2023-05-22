@@ -4,6 +4,11 @@ header {
     background-color: $black;
     color: white;
     padding: 20px 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 99;
 
     ul {
         display: flex;
