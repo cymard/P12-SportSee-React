@@ -447,7 +447,6 @@ function Home() {
                                                 responsive: true,
                                                 maintainAspectRatio: false,
                                                 borderWidth: 0,
-                                                borderDash: 10,
                                                 cutout: 60,
                                                 layout: {
                                                     padding: {
