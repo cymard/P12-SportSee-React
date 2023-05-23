@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function Loading({ children }) {
     return (
@@ -9,3 +10,7 @@ function Loading({ children }) {
 }
 
 export default Loading;
+
+Loading.propTypes = {
+    children: PropTypes.string,
+};

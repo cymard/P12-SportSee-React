@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useFetch from './useFetch';
 import formatApiData from '../utils/formatApiData';
+import PropTypes from 'prop-types';
 
 function useUserFetch(userId) {
     const [formattedUserData, setFormattedUserData] = useState({ status: false, data: [] });
@@ -60,3 +61,7 @@ function useUserFetch(userId) {
 }
 
 export default useUserFetch;
+
+useUserFetch.prototype = {
+    userId: PropTypes.string.isRequired,
+};

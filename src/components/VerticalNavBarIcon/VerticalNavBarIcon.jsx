@@ -1,5 +1,6 @@
 import React from 'react';
 import './VerticalNavBarIcon.scss';
+import PropTypes from 'prop-types';
 
 function VerticalNavBarIcon({ children }) {
     return (
@@ -12,3 +13,7 @@ function VerticalNavBarIcon({ children }) {
 }
 
 export default VerticalNavBarIcon;
+
+VerticalNavBarIcon.prototype = {
+    children: PropTypes.string.isRequired,
+};
