@@ -12,13 +12,14 @@ import { useParams } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
 import Error from '../../components/Error/Error';
 import useUserFetch from '../../hooks/useUserFetch';
+import PropTypes from 'prop-types';
 
-function Home() {
+function Home({ isMock }) {
     const [userData, setUserData] = useState({ status: false, data: [] });
     const [isError, setIsError] = useState({ status: false, message: '' });
     const [isUserRequestExecuted, setIsUserRequestExecuted] = useState(false);
     let { id } = useParams();
-    const { isRequestsExecuted, formattedUserData, error } = useUserFetch(id);
+    const { isRequestsExecuted, formattedUserData, error } = useUserFetch(id, isMock);
 
     useEffect(() => {
         // Permet de ne pas provoquer un nouveau render, si les requêtes ont déjà été éxécutées
@@ -526,3 +527,7 @@ function Home() {
 }
 
 export default Home;
+
+Home.prototype = {
+    isMock: PropTypes.bool.isRequired,
+};

@@ -5,7 +5,8 @@ import Home from './pages/Home/Home';
 function Router() {
     return (
         <Routes>
-            <Route path="/home/:id" element={<Home />} />
+            <Route path="/home/:id" element={<Home isMock={false} />} />
+            <Route path="/home/mock" element={<Home isMock={true} />} />
         </Routes>
     );
 }
