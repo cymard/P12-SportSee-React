@@ -1,7 +1,4 @@
-$calorie-item-visual-bg-pink: rgba(195, 6, 174, 0.1);
-$calorie-item-visual-bg-blue: rgba(0, 0, 255, 0.1);
-$calorie-item-visual-bg-yellow: rgba(252, 255, 0, 0.1);
-$calorie-item-visual-bg-red: rgba(255, 0, 0, 0.1);
+@import '../../style/_variables.scss';
 
 .calorie-item-visual-bg-red {
     background-color: $calorie-item-visual-bg-red;
