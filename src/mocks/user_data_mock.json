@@ -1,42 +1,86 @@
-{
-    "id": 12,
-    "firstName": "John",
-    "lastName": "Doe",
-    "age": 31,
-    "keyData": {
-        "calorieCount": 2500,
-        "carbohydrateCount": 150,
-        "lipidCount": 120,
-        "proteinCount": 90
-    },
-    "todayScore": 0.4,
-    "activitySessions": [
-        { "day": "2020-07-02", "kilogram": 69, "calories": 220 },
-        { "day": "2020-07-03", "kilogram": 70, "calories": 280 },
-        { "day": "2020-07-04", "kilogram": 70, "calories": 500 },
-        { "day": "2020-07-05", "kilogram": 70, "calories": 160 },
-        { "day": "2020-07-06", "kilogram": 69, "calories": 220 },
-        { "day": "2020-07-07", "kilogram": 69, "calories": 162 },
-        { "day": "2020-07-08", "kilogram": 69, "calories": 380 }
-    ],
-    "averageSessions": [
-        { "day": 1, "sessionLength": 30 },
-        { "day": 2, "sessionLength": 40 },
-        { "day": 3, "sessionLength": 50 },
-        { "day": 4, "sessionLength": 30 },
-        { "day": 5, "sessionLength": 30 },
-        { "day": 6, "sessionLength": 50 },
-        { "day": 7, "sessionLength": 50 }
-    ],
-    "performance": {
-        "data": [
-            { "value": 200, "kind": 1 },
-            { "value": 240, "kind": 2 },
-            { "value": 80, "kind": 3 },
-            { "value": 80, "kind": 4 },
-            { "value": 220, "kind": 5 },
-            { "value": 110, "kind": 6 }
+[
+    {
+        "id": 12,
+        "firstName": "John",
+        "lastName": "Doe",
+        "age": 31,
+        "keyData": {
+            "calorieCount": 2500,
+            "carbohydrateCount": 150,
+            "lipidCount": 120,
+            "proteinCount": 90
+        },
+        "todayScore": 0.4,
+        "activitySessions": [
+            { "day": "2020-07-02", "kilogram": 69, "calories": 220 },
+            { "day": "2020-07-03", "kilogram": 70, "calories": 280 },
+            { "day": "2020-07-04", "kilogram": 70, "calories": 500 },
+            { "day": "2020-07-05", "kilogram": 70, "calories": 160 },
+            { "day": "2020-07-06", "kilogram": 69, "calories": 220 },
+            { "day": "2020-07-07", "kilogram": 69, "calories": 162 },
+            { "day": "2020-07-08", "kilogram": 69, "calories": 380 }
         ],
-        "kind": { "1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity" }
+        "averageSessions": [
+            { "day": 1, "sessionLength": 30 },
+            { "day": 2, "sessionLength": 40 },
+            { "day": 3, "sessionLength": 50 },
+            { "day": 4, "sessionLength": 30 },
+            { "day": 5, "sessionLength": 30 },
+            { "day": 6, "sessionLength": 50 },
+            { "day": 7, "sessionLength": 50 }
+        ],
+        "performance": {
+            "data": [
+                { "value": 200, "kind": 1 },
+                { "value": 240, "kind": 2 },
+                { "value": 80, "kind": 3 },
+                { "value": 80, "kind": 4 },
+                { "value": 220, "kind": 5 },
+                { "value": 110, "kind": 6 }
+            ],
+            "kind": { "1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity" }
+        }
+    },
+    {
+        "id": 18,
+        "firstName": "Paul",
+        "lastName": "Jean",
+        "age": 45,
+        "keyData": {
+            "calorieCount": 2200,
+            "carbohydrateCount": 190,
+            "lipidCount": 100,
+            "proteinCount": 200
+        },
+        "todayScore": 0.6,
+        "activitySessions": [
+            { "day": "2020-07-02", "kilogram": 69, "calories": 220 },
+            { "day": "2020-07-03", "kilogram": 70, "calories": 240 },
+            { "day": "2020-07-04", "kilogram": 70, "calories": 400 },
+            { "day": "2020-07-05", "kilogram": 70, "calories": 460 },
+            { "day": "2020-07-06", "kilogram": 69, "calories": 210 },
+            { "day": "2020-07-07", "kilogram": 69, "calories": 162 },
+            { "day": "2020-07-08", "kilogram": 69, "calories": 380 }
+        ],
+        "averageSessions": [
+            { "day": 1, "sessionLength": 30 },
+            { "day": 2, "sessionLength": 40 },
+            { "day": 3, "sessionLength": 30 },
+            { "day": 4, "sessionLength": 50 },
+            { "day": 5, "sessionLength": 50 },
+            { "day": 6, "sessionLength": 50 },
+            { "day": 7, "sessionLength": 50 }
+        ],
+        "performance": {
+            "data": [
+                { "value": 200, "kind": 1 },
+                { "value": 210, "kind": 2 },
+                { "value": 250, "kind": 3 },
+                { "value": 80, "kind": 4 },
+                { "value": 220, "kind": 5 },
+                { "value": 100, "kind": 6 }
+            ],
+            "kind": { "1": "cardio", "2": "energy", "3": "endurance", "4": "strength", "5": "speed", "6": "intensity" }
+        }
     }
-}
+]
