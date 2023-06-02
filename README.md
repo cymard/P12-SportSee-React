@@ -74,7 +74,15 @@ Install dependencies
   npm install
 ```
 
-Start the API
+Go to config.js and set apiUrl
+
+```bash
+  const config = {
+    apiUrl: 'http://example:port/'
+  };
+```
+
+Start the Project
 
 ```bash
   npm run start

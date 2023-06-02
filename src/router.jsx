@@ -6,7 +6,7 @@ function Router() {
     return (
         <Routes>
             <Route path="/home/:id" element={<Home isMock={false} />} />
-            <Route path="/home/mock" element={<Home isMock={true} />} />
+            <Route path="/home/mock/:id" element={<Home isMock={true} />} />
         </Routes>
     );
 }

@@ -3,13 +3,14 @@ import useFetch from './useFetch';
 import formatApiData from '../utils/formatApiData';
 import PropTypes from 'prop-types';
 import userDataMock from '../mocks/user_data_mock.json';
+import config from '../config';
 
 function useUserFetch(userId, isMock) {
     const [formattedUserData, setFormattedUserData] = useState({ status: false, data: [] });
     const [error, setError] = useState({ status: false, message: '' });
     const [isRequestsExecuted, setIsRequestsExecuted] = useState(false);
 
-    const apiBaseUrl = 'http://localhost:3001/user/' + userId;
+    const apiBaseUrl = config.apiUrl + 'user/' + userId;
     const responseUserInformations = useFetch(apiBaseUrl, !isMock);
     const responseUserActivity = useFetch(apiBaseUrl + '/activity', !isMock);
     const responseUserAverageSession = useFetch(apiBaseUrl + '/average-sessions', !isMock);
@@ -22,7 +23,11 @@ function useUserFetch(userId, isMock) {
 
         if (isMock) {
             setIsRequestsExecuted(true);
-            setFormattedUserData({ status: true, data: userDataMock });
+            const userData = userDataMock.find((userMock) => userMock.id === parseInt(userId));
+            if (!userData) {
+                setError({ status: true, message: 'Aucune data pour cet id' });
+            }
+            setFormattedUserData({ status: true, data: userData });
             return;
         }
 
